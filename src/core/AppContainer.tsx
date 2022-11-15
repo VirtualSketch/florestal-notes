@@ -14,8 +14,7 @@ interface AppContainerProps {
 
 function AppContainer({ children, actionButton }: AppContainerProps) {
   return (
-    <Center position="relative" safeAreaY={5} flex={1} bg="blueGray.300">
-      {/* <StatusBar style="auto" /> */}
+    <Center position="relative" safeAreaY={5} flex={1} bg="blueGray.200">
       <Container w="full">{children}</Container>
       {actionButton && (
         <Fab

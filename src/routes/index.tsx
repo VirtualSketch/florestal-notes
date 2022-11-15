@@ -12,6 +12,8 @@ const Stack = createNativeStackNavigator();
 function Routes() {
   const { authData } = useAuth();
 
+  console.log(authData);
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">

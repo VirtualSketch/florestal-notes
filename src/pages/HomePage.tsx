@@ -5,7 +5,6 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import ProfileMenu from '../components/ProfileMenu';
 import { TouchableOpacity } from 'react-native';
 import UserCard from '../components/UserCard';
-import { getNameInitialsString } from '../utils';
 import { useAuth } from '../contexts/hooks';
 
 type RouteProps = {
@@ -17,11 +16,10 @@ type HomePageProps = NativeStackScreenProps<RouteProps>;
 
 function HomePage({ navigation }: HomePageProps) {
   const { authData } = useAuth();
-
   return (
     <AppContainer>
       <VStack h="full" w="full" space={5}>
-        <ProfileMenu profileData={{ name: authData.name }} />
+        <ProfileMenu profileData={{ name: authData?.name ?? 'User' }} />
         <Divider />
         <TouchableOpacity onPress={() => navigation.navigate('User')}>
           <UserCard />

@@ -11,7 +11,7 @@ type UserDataProps = {
 };
 
 type AuthContextProps = {
-  userData: UserDataProps;
+  userData?: UserDataProps;
   handleAuthenticate: (name: string) => void;
 };
 
@@ -28,9 +28,7 @@ const DEFAULT_VALUE = {
 export const AuthContext = createContext<AuthContextProps>(DEFAULT_VALUE);
 
 function AuthProvider({ children }: AuthProviderProps) {
-  const [userData, setUserData] = useState<UserDataProps>(
-    DEFAULT_VALUE.userData
-  );
+  const [userData, setUserData] = useState<UserDataProps>();
 
   const database = useDatabase();
 
